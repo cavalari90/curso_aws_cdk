@@ -1,4 +1,4 @@
-# Welcome to your CDK Java project!
+CursoAwsCdkStack# Welcome to your CDK Java project!
 
 This is a blank project for Java development with CDK.
 

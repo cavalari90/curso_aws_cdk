@@ -23,7 +23,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/190afcbb4c800040a52679e0ca99e94ab6e130536a8d5bf13dac759cec5d30fb.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a8b067d96bf3fc5dbddf034fa433c6f465277898215ddb2a3df9d3bebf355174.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -153,6 +153,12 @@
             "data": "CDKMetadataAvailable"
           }
         ],
+        "/Vpc/Exports/Output{\"Fn::GetAtt\":[\"Vpc01F824461A\",\"DefaultSecurityGroup\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttVpc01F824461ADefaultSecurityGroupB47B3935"
+          }
+        ],
         "/Vpc/Exports/Output{\"Ref\":\"Vpc01PublicSubnet1Subnet52644D7B\"}": [
           {
             "type": "aws:cdk:logicalId",
@@ -258,6 +264,102 @@
       },
       "displayName": "Cluster"
     },
+    "Rds.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Rds.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Rds": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "Rds.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/299af73ac0efd2f853030e210941d701292f73022ef387c08968d040a9e77459.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Rds.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Vpc",
+        "Rds.assets"
+      ],
+      "metadata": {
+        "/Rds/databasePassword": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "databasePassword"
+          }
+        ],
+        "/Rds/Rds/from 0.0.0.0_0:3306": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Rdsfrom000003306ABDC33FC"
+          }
+        ],
+        "/Rds/Rds01/SubnetGroup/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Rds01SubnetGroup7C0866B6"
+          }
+        ],
+        "/Rds/Rds01/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Rds014018A640"
+          }
+        ],
+        "/Rds/rds-endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rdsendpoint"
+          }
+        ],
+        "/Rds/rds-password": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "rdspassword"
+          }
+        ],
+        "/Rds/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Rds/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/Rds/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Rds/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Rds"
+    },
     "Service01.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
@@ -274,7 +376,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4ea41dd82b69bf9052c747776f784f6d44c0843d9332e06d098103fb8f3f574a.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a21ff5bdd518211c6c98a1db8d10039efcdc54c39dbca1162f5eaa5014704f33.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -288,6 +390,7 @@
       },
       "dependencies": [
         "Cluster",
+        "Rds",
         "Vpc",
         "Service01.assets"
       ],

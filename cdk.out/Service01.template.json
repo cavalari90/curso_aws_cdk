@@ -160,8 +160,35 @@
       "Properties": {
         "ContainerDefinitions": [
           {
+            "Environment": [
+              {
+                "Name": "SPRING_DATASOURCE_URL",
+                "Value": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "jdbc:mariadb://",
+                      {
+                        "Fn::ImportValue": "rds-endpoint"
+                      },
+                      ":3306/aws_project01?createDatabaseIfNotExist=true"
+                    ]
+                  ]
+                }
+              },
+              {
+                "Name": "SPRING_DATASOURCE_PASSWORD",
+                "Value": {
+                  "Fn::ImportValue": "rds-password"
+                }
+              },
+              {
+                "Name": "SPRING_DATASOURCE_USERNAME",
+                "Value": "admin"
+              }
+            ],
             "Essential": true,
-            "Image": "cavalari90/curso_aws_project01:1.1.1",
+            "Image": "cavalari90/curso_aws_project01:1.2.1",
             "LogConfiguration": {
               "LogDriver": "awslogs",
               "Options": {
